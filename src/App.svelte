@@ -8,7 +8,17 @@
   <Header />
   <div class="output">
     {#each text.split(/[ \n]+/) as t}
-      <b>{t.substring(0, t.length / 2)}</b>{t.substring(t.length / 2, t.length)}
+      {#if t.length % 2 == 0}
+        <b>{t.substring(0, t.length / 2)}</b>{t.substring(
+          t.length / 2,
+          t.length
+        )}
+      {:else}
+        <b>{t.substring(0, t.length / 2 + 1)}</b>{t.substring(
+          t.length / 2 + 1,
+          t.length
+        )}
+      {/if}
       {" "}
     {/each}
   </div>
