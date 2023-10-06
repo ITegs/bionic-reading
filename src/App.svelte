@@ -7,11 +7,8 @@
 <main>
   <Header />
   <div class="output">
-    {#each text.split(" ") as t}
-      <b>{t.substring(0, t.length / 2 + 1)}</b>{t.substring(
-        t.length / 2 + 1,
-        t.length
-      )}
+    {#each text.split(/[ \n]+/) as t}
+      <b>{t.substring(0, t.length / 2)}</b>{t.substring(t.length / 2, t.length)}
       {" "}
     {/each}
   </div>
